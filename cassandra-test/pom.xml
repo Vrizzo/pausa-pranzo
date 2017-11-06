@@ -3,25 +3,15 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<groupId>com.pausapranzo</groupId>
-	<artifactId>cassandra-test</artifactId>
-	<version>1.0-SNAPSHOT</version>
-	<packaging>jar</packaging>
-
-	<name>cassandra-test</name>
-	<description>Demo project for Spring Boot</description>
-
 	<parent>
 		<groupId>com.pausapranzo</groupId>
 		<artifactId>pausapranzo</artifactId>
 		<version>1.0-SNAPSHOT</version>
 	</parent>
+	<artifactId>cassandra-test</artifactId>
 
-	<properties>
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-		<java.version>1.8</java.version>
-	</properties>
+	<name>cassandra-test</name>
+	<description>Demo project for Spring Boot</description>
 
 	<dependencies>
 		<!--<dependency>-->
@@ -31,9 +21,23 @@
 
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-cassandra</artifactId>
+			<version>1.5.8.RELEASE</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
+			<version>1.5.8.RELEASE</version>
 			<scope>test</scope>
 		</dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.12</version>
+            <scope>test</scope>
+        </dependency>
+
 	</dependencies>
 
 	<build>
