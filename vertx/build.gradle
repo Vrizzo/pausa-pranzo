@@ -1,0 +1,38 @@
+apply plugin: 'java'
+
+group = 'com.pausapranzo'
+version = '1.0-SNAPSHOT'
+description = 'Just a simple producer consumer vertx example'
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+
+tasks.withType(JavaCompile) {
+	options.encoding = 'UTF-8'
+}
+
+task fatJar(type: Jar) {
+    manifest {
+        attributes (
+                'Implementation-Title': 'Gradle Jar With Dependencies',
+                'Implementation-Version': version,
+                'Main-Class': 'com.pausa.pranzo.vertx.PausaPranzoApp'
+        )
+    }
+    baseName = 'pausa-pranzo'
+    from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
+    with jar
+}
+
+fatJar.dependsOn = ['clean', 'test']
+
+repositories {
+        
+     maven { url "http://repo.maven.apache.org/maven2" }
+}
+dependencies {
+    compile group: 'io.vertx', name: 'vertx-core', version:'3.5.0'
+    compile group: 'io.vertx', name: 'vertx-hazelcast', version:'3.5.0'
+    testCompile group: 'junit', name: 'junit', version:'4.12'
+}
