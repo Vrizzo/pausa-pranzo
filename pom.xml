@@ -19,6 +19,7 @@
     <modules>
         <module>cassandra-test</module>
         <module>vertx</module>
+        <module>pausa-pranzo-core</module>
     </modules>
 
     <properties>
